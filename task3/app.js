@@ -1,40 +1,28 @@
-var div = document.getElementById("root");
-var ul = document.createElement("ul");
-var newLi = document.createElement("li");
-var span = document.createElement("span");
-var textNode = document.createTextNode('Сделать задание #3 по web-программированию');
-var text_2 = document.createTextNode('Удалить');
-span.appendChild(textNode);
-newLi.appendChild(span);
-var button_1 = document.createElement("button");
-button_1.addEventListener("click", function () {
-    ul.removeChild(newLi);
-});
-var input = document.createElement('input');
-input.setAttribute('id', 'add_task_input');
-input.setAttribute('type', 'text');
-var button_2 = document.createElement('button');
-button_2.appendChild(document.createTextNode('add_task'));
+function add(text) {
+    var li = document.createElement('li');
+    var span = document.createElement('span');
+    span.innerHTML = text;
+    li.appendChild(span);
+    var button1 = document.createElement("button");
+    button1.innerHTML = "Удалить";
+    button1.addEventListener("click",  function(){ li.remove()});
 
-function add_new_task(){
-    var new_task = document.createElement('span');
-    var line_of_new_task = document.createElement('li');
-    new_task.appendChild(document.createTextNode(input.value));
-    line_of_new_task.appendChild(new_task);
-    var but = document.createElement("button");
-    but.addEventListener("click", function () {
-        ul.removeChild(line_of_new_task);
-    });
-    but.appendChild(document.createTextNode('Удалить'));
-    line_of_new_task.appendChild(but);
-    ul.appendChild(line_of_new_task);
+    li.appendChild(button1);
+    ul.appendChild(li);
 }
 
-button_2.addEventListener('click', add_new_task);
-
-button_1.appendChild(text_2);
-newLi.appendChild(button_1);
-ul.appendChild(newLi);
+var div = document.getElementById("root");
+var ul = document.createElement('ul');
 div.appendChild(ul);
+
+add("Сделать задание #3 по web-программированию");
+
+var input = document.createElement("input");
+input.id = "add_task_input";
+
+var button2 = document.createElement("button");
+button2.innerHTML = "add_task";
+button2.id = "add_task";
+button2.addEventListener("click", function(){add(input.value)});
 div.appendChild(input);
-div.appendChild(button_2);
+div.appendChild(button2);
