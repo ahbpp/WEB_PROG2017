@@ -28,8 +28,6 @@ func main() {
 }
 
 func AddURL(w http.ResponseWriter, r *http.Request) {
-	//r - переданный запрос
-	//w - ответ
 	var MyLongUrl LongUrl
 	json.NewDecoder(r.Body).Decode(&MyLongUrl) 
 
@@ -54,9 +52,4 @@ func GetURL(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusMovedPermanently)
 	var MyLongUrl LongUrl
 	MyLongUrl.Url = URLStore[Input]
-	/*j, err := json.Marshal(MyLongUrl)
-	if err != nil {
-		panic(err)
-	}
-	w.Write(j)*/
 }
