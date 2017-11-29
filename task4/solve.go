@@ -1,7 +1,6 @@
 package main
 import (
 	"unicode"
-	//"fmt"
 )
 
 func RemoveEven(input []int) []int {
@@ -46,13 +45,3 @@ func DifferentWordsCount(text string) int {
 	}
 	return len(DifferentWords)
 }
-
-/*func main() {
-	input := []int{0, 3, 2, 5}
-	result := RemoveEven(input)
-	fmt.Println(result)
-	gen := PowerGenerator(2)
-	fmt.Println(gen())
-	fmt.Println(gen())
-	fmt.Println(DifferentWordsCount("Hello, world!HELLO  wOrlD...12"))
-}*/
